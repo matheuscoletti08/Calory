@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Calcule seu IMC, taxa metabólica basal, meta diária de calorias e a divisão de macronutrientes.">
+  <title>Calory</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1><span class="header-initial">C</span>alory</h1>
+      <p>Entenda melhor o que seu corpo precisa.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="calculator">
+      <div class="section-title">
+        <span class="section-number">01</span>
+        <div>
+          <h2>Começa por você.</h2>
+          <p>Conta pra gente um pouco sobre sua rotina.</p>
+        </div>
+      </div>
+
+      <form id="nutrition-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="sexo">Sexo</label>
+            <select id="sexo" required>
+              <option value="">Selecione</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="idade">Idade</label>
+            <input type="number" id="idade" placeholder="Ex: 25" min="15" max="120" required>
+          </div>
+
+          <div class="field">
+            <label for="peso">Peso (kg)</label>
+            <input type="number" id="peso" placeholder="Ex: 75" min="20" max="300" step="0.1" required>
+          </div>
+
+          <div class="field">
+            <label for="altura">Altura (cm)</label>
+            <input type="number" id="altura" placeholder="Ex: 175" min="100" max="250" required>
+          </div>
+
+          <div class="field">
+            <label for="atividade">Sua rotina</label>
+            <select id="atividade" required>
+              <option value="">Como você se movimenta?</option>
+              <option value="1.2">Quase não treino</option>
+              <option value="1.375">Me movimento às vezes</option>
+              <option value="1.55">Treino regularmente</option>
+              <option value="1.725">Treino bastante</option>
+              <option value="1.9">Vivo treinando</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="objetivo">Seu objetivo</label>
+            <select id="objetivo" required>
+              <option value="">O que você busca?</option>
+              <option value="emagrecer">Perder peso</option>
+              <option value="manter">Manter o peso</option>
+              <option value="ganhar">Ganhar peso</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="calculate-button">Ver meu resultado</button>
+      </form>
+    </section>
+
+    <section id="resultados" class="results hidden">
+      <div class="section-title">
+        <span class="section-number">02</span>
+        <div>
+          <h2>Seu resultado.</h2>
+          <p>Uma estimativa feita a partir dos seus dados.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <p class="card-label">IMC</p>
+          <p class="card-value"><span id="resultado-imc">--</span></p>
+          <p class="card-note"><span id="classificacao-imc">--</span></p>
+        </article>
+
+        <article class="card">
+          <p class="card-label">TMB</p>
+          <p class="card-value"><span id="resultado-tmb">--</span> <small>kcal</small></p>
+          <p class="card-note">Energia em repouso</p>
+        </article>
+
+        <article class="card highlight">
+          <p class="card-label">Meta diária</p>
+          <p class="card-value"><span id="resultado-kcal">--</span> <small>kcal</small></p>
+          <p class="card-note">Estimativa por dia</p>
+        </article>
+      </div>
+
+      <div class="macro-section">
+        <div class="macro-header">
+          <div>
+            <p class="card-label">Macros</p>
+            <h3>Como dividir suas calorias.</h3>
+          </div>
+          <p class="macro-total"><span id="macro-calories">-- kcal</span></p>
+        </div>
+
+        <div class="macros">
+          <article class="macro-card protein">
+            <p class="macro-name">Proteína</p>
+            <p class="macro-value"><span id="proteina">--</span> <small>g</small></p>
+            <p class="macro-kcal"><span id="proteina-kcal">-- kcal</span></p>
+          </article>
+
+          <article class="macro-card carbs">
+            <p class="macro-name">Carboidratos</p>
+            <p class="macro-value"><span id="carboidratos">--</span> <small>g</small></p>
+            <p class="macro-kcal"><span id="carboidratos-kcal">-- kcal</span></p>
+          </article>
+
+          <article class="macro-card fats">
+            <p class="macro-name">Gorduras</p>
+            <p class="macro-value"><span id="gorduras">--</span> <small>g</small></p>
+            <p class="macro-kcal"><span id="gorduras-kcal">-- kcal</span></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <p class="disclaimer-title">Antes de levar isso a sério.</p>
+        <p>Os números aqui são estimativas baseadas nos dados que você informou. Use como ponto de partida para
+          entender melhor sua alimentação, não como uma prescrição. Este site é apenas para fins de estudo.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Calory — feito por <a id="link-footer" class="footer-link" href="https://github.com/matheuscoletti08"
+          target="_blank" rel="noopener noreferrer">ℭoletti</a></p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>

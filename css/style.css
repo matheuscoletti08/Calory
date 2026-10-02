@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@100;300;400;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #0b0b0b;
+  --surface: #141414;
+  --surface-light: #1c1c1c;
+  --border: #292929;
+  --border-strong: #3a3a3a;
+  --text: #f2f2f2;
+  --muted: #8c8c8c;
+  --accent: #acff3f;
+  --accent-soft: rgba(172, 255, 63, 0.12);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --transition: 0.2s ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.header {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  letter-spacing: -2px;
+  font-weight: 800;
+}
+
+.header-initial {
+  display: inline-block;
+  margin-right: 0.02em;
+
+  color: var(--accent);
+  font-family: 'Koh Santepheap', 'Trebuchet MS', cursive, sans-serif;
+  font-size: 1.5em;
+  font-weight: 900;
+  line-height: 0.9;
+  transform: translateY(0.04em);
+}
+
+.header p {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+main {
+  flex: 1;
+  padding: 56px 0 72px;
+}
+
+.section-title {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin-bottom: 32px;
+}
+
+.section-number {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.section-title h2 {
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  letter-spacing: -0.5px;
+}
+
+.section-title p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.calculator {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #bdbdbd;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 13px 14px;
+
+  background: var(--surface-light);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  font-family: inherit;
+  font-size: 15px;
+
+  appearance: none;
+  outline: none;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.field select {
+  padding-right: 40px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) center, calc(100% - 14px) center;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.field input::placeholder {
+  color: #5e5e5e;
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: var(--border-strong);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+  background: #181818;
+}
+
+.calculate-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+
+  background: var(--accent);
+  color: #0a0a0a;
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+  transition: filter var(--transition), transform var(--transition);
+}
+
+.calculate-button:hover {
+  filter: brightness(0.92);
+}
+
+.calculate-button:active {
+  transform: translateY(1px);
+}
+
+.calculate-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.hidden {
+  display: none;
+}
+
+.results {
+  margin-top: 72px;
+}
+
+.card-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 24px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.card-value {
+  font-size: clamp(2rem, 4.5vw, 2.375rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.card-value small {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.card-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card.highlight {
+  background: linear-gradient(180deg, var(--accent-soft), transparent 60%), var(--surface);
+  border-color: var(--accent);
+}
+
+.card.highlight .card-value {
+  color: var(--accent);
+}
+
+.macro-section {
+  margin-top: 20px;
+  padding: clamp(22px, 3.5vw, 30px);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.macro-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.macro-header h3 {
+  margin-top: 6px;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  letter-spacing: -0.5px;
+}
+
+.macro-total {
+  padding: 6px 12px;
+
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.macros {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.macro-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 20px;
+
+  background: var(--surface-light);
+  border: 1px solid transparent;
+  border-left: 3px solid var(--macro-color, var(--border-strong));
+  border-radius: var(--radius-sm);
+}
+
+.macro-card.protein {
+  --macro-color: #ff8f6b;
+}
+
+.macro-card.carbs {
+  --macro-color: #6bc5ff;
+}
+
+.macro-card.fats {
+  --macro-color: #ffd166;
+}
+
+.macro-name {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.macro-value {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.macro-value small {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.macro-kcal {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.disclaimer {
+  margin-top: 20px;
+  padding: 20px 22px;
+
+  background: var(--surface-light);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.disclaimer-title {
+  margin-bottom: 6px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+
+  .cards,
+  .macros {
+    grid-template-columns: 1fr;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .macro-header {
+    align-items: flex-start;
+  }
+
+  .header {
+    padding: 44px 0 36px;
+  }
+
+  .results {
+    margin-top: 56px;
+  }
+}
