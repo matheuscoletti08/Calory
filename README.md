@@ -1,4 +1,4 @@
-# [NutriCalc](https://matheuscoletti08.github.io/Calory/)
+# [Calory](https://matheuscoletti08.github.io/Calory/)
 
 Calculadora nutricional desenvolvida com **HTML, CSS e JavaScript**, criada para estimar necessidades calóricas e distribuição de macronutrientes a partir dos dados informados pelo usuário.
 
